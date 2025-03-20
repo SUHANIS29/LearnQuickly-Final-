@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnQuickly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #0d0221;
+            position: relative;
+            color: white;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .stars span {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px 40px;
+            margin-top: -20px;
+            z-index: 1;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 2, 33, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 10px rgba(209, 63, 119, 0.8);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #D13F77;
+            text-shadow: 0 0 10px #D13F77;
+        }
+        .signup-btn {
+            background: #D13F77;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .signup-btn:hover {
+            background: white;
+            color: #D13F77;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .hero-text {
+            width: 50%;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #D13F77, #F68D2E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-text p {
+            margin: 20px 0;
+            color: #bdbdbd;
+        }
+        .cta-btn {
+            background: #D13F77;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            background: white;
+            color: #D13F77;
+        }
+        
+        .image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .nav-links a[href="lq.html"] {
+    color: #D13F77;
+    text-shadow: 0 0 10px #D13F77;
+}
+.image2 {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end; /* Pushes the image to the right */
+}
+
+.image2 img {
+    width: 100%;
+    max-width: 550px; 
+    border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const starsContainer = document.querySelector(".stars");
+                for (let i = 0; i < 100; i++) {
+                    let star = document.createElement("span");
+                    let x = Math.random() * window.innerWidth;
+                    let y = Math.random() * window.innerHeight;
+                    let size = Math.random() * 2 + 1;
+                    star.style.left = `${x}px`;
+                    star.style.top = `${y}px`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.opacity = Math.random();
+                    starsContainer.appendChild(star);
+                }
+            });
+        </script>
+    </div>
+    <nav>
+        {% csrf_token %}
+        <div class="logo">
+            {% load static %}
+            <img src="{% static 'logonew.jpeg' %}" alt="LearnQuickly Logo">
+            <h2>LearnQuickly</h2>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'lq' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'newexp' %}">Explore</a>
+            <a href="{% url 'logout' %}">logout</a>
+            
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>LearnQuickly<br>Study Smartly – <br>Instant MCQs, Summaries, Flashcards & Flowcharts!</h1>
+                <p>Learn Quickly – Master Any Topic in Seconds! Transform your study material into MCQs, summaries, flashcards & flowcharts instantly with AI. Learn faster, retain more, and make every study session count. Just paste your text and let AI do the rest!</p>
+                <a href="{% url 'newexp' %}" class="cta-btn">Get Started</a>
+            </div>
+            <div class="image2">
+                {% load static %}
+                <img src="{% static 'chitra.png' %}">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

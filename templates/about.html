@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LearnQuickly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #0d0221;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 2, 33, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 10px rgba(209, 63, 119, 0.8);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #D13F77;
+            text-shadow: 0 0 10px #D13F77;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #D13F77, #F68D2E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section {
+            margin-top: 40px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(209, 63, 119, 0.5);
+        }
+        .cta-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #D13F77;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            background: white;
+            color: #D13F77;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="LearnQuickly Logo">
+            <h2>LearnQuickly</h2>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'lq2'%}">Home</a>
+            <a href="{% url 'about'%}"class="active">About Us</a>
+            <a href="{% url 'newexp'%}">Explore</a>
+            <a href="#" class="cta-btn">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>About LearnQuickly</h1>
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>We aim to make studying faster, smarter, and more effective by using AI to generate instant MCQs, summaries, flashcards, and flowcharts. LearnQuickly helps students master any topic in seconds!</p>
+        </div>
+        <div class="section">
+            <h2>Why Choose Us?</h2>
+            <p>Instant MCQs | Smart Summaries | Flashcards | Flowcharts</p>
+        </div>
+        <div class="section">
+            <h2>Join Us</h2>
+            <p>Start your journey with LearnQuickly today and supercharge your study sessions.</p>
+            <a href="{% url 'newexp' %}" class="cta-btn">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>

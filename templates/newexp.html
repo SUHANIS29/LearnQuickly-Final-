@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnQuickly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0d0221;
+            position: relative;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .stars span {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 20px;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 2, 33, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 10px rgba(209, 63, 119, 0.8);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D13F77;
+            text-shadow: 0 0 10px #D13F77;
+        }
+
+        .logout-btn {
+            background: #D13F77;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: white;
+            color: #D13F77;
+        }
+
+        .divider {
+            width: 100%;
+            height: 3px;
+            background: #D13F77;
+            margin: 2px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #D13F77, #F68D2E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #bdbdbd;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .options a {
+            text-decoration: none;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .option i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #D13F77;
+        }
+
+        .option h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .option p {
+            font-size: 1rem;
+            color: #bdbdbd;
+        }
+
+        .option:hover {
+            background: linear-gradient(90deg, #D13F77, #F68D2E);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .nav-links a[href="newexp.html"] {
+            color: #D13F77;
+            text-shadow: 0 0 10px #D13F77;
+        }
+
+        .option:nth-child(1) i,
+        .option:nth-child(1) h2,
+        .option:nth-child(2) i,
+        .option:nth-child(2) h2 {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars">
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const starsContainer = document.querySelector(".stars");
+                for (let i = 0; i < 100; i++) {
+                    let star = document.createElement("span");
+                    let x = Math.random() * window.innerWidth;
+                    let y = Math.random() * window.innerHeight;
+                    let size = Math.random() * 2 + 1;
+                    star.style.left = `${x}px`;
+                    star.style.top = `${y}px`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.opacity = Math.random();
+                    starsContainer.appendChild(star);
+                }
+            });
+        </script>
+    </div>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'logonew.jpeg' %}" alt="LearnQuickly Logo">
+                <h2>LearnQuickly</h2>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'lq2' %}">Home</a>
+                <a href="{% url 'about' %}" class="active">About Us</a>
+                <a href="{% url 'newexp' %}">Explore</a>
+
+                <a href="#" class="logout-btn">Logout</a>
+            </div>
+        </nav>
+        <!-- <div class="divider"></div> -->
+        <br>
+        <br>
+        <br>
+        <h1>Explore Learn Quickly</h1>
+        <p class="description">Choose an option below to generate instant MCQs, summaries, flashcards, or flowcharts for
+            efficient learning.</p>
+        <div class="options">
+            <a href="{% url 'flash' %}">
+                <div class="option">
+                    <i class="fas fa-clone"></i>
+                    <h2>Flashcards</h2>
+                    <p>Create interactive flashcards for quick revisions.</p>
+                </div>
+            </a>
+            <a href="{% url 's_summ' %}">
+                <div class="option">
+                    <i class="fas fa-align-left"></i>
+                    <h2>Summarize Text</h2>
+                    <p>Get a concise summary of any topic in seconds.</p>
+                </div>
+            </a>
+
+            <a href="{% url 'mcq' %}">
+                <div class="option">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Generate MCQs</h2>
+                    <p>Convert your study material into multiple-choice questions instantly.</p>
+                </div>
+            </a>
+            <a href="{% url 'flow' %}">
+                <div class="option">
+                    <i class="fas fa-project-diagram"></i>
+                    <h2>Generate Flowcharts</h2>
+                    <p>Visualize complex concepts with flowcharts.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
