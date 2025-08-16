@@ -1,10 +1,12 @@
-flask==2.3.3
+
 
 # or streamlit if it is Streamlit app
 # streamlit==1.26.0
 
 # Database connectivity
-mysql-connector-python==8.1.1
+flask==2.3.3
+mysql-connector-python==8.1.0
+
 # or psycopg2-binary==2.9.9 if using PostgreSQL
 
 # Data processing
