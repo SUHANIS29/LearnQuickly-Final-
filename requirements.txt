@@ -1,5 +1,5 @@
-# Web framework
-flask==2.3.4
+flask==2.3.3
+
 # or streamlit if it is Streamlit app
 # streamlit==1.26.0
 
